@@ -5,15 +5,11 @@ from fastapi import APIRouter
 
 router = APIRouter()
 
-@router.get("/test", name="test")
-def get_test(json: bool = False):
-    return magic(response_value=True, json=json)
-
 
 @router.get("/coinflip", name="siri, flip the  🪙")
 def get_coinflip(json: bool = False):
-    coinflip = random.choice(["head", "tail"])
-    return magic(response_value=coinflip, json=json)
+    answer = random.choice(["head", "tail"])
+    return magic(response_value=answer, json=json)
 
 
 @router.get("/8ball", name="🎱")
