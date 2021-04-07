@@ -1,6 +1,7 @@
 from fastapi import FastAPI, APIRouter
 
-from endpoints import api_random, api_math, api_programming, api_misc
+from endpoints import api_random, api_math, api_programming, api_misc, api_system
+from analytics import Analytics
 
 tags_metadata = [
     {
@@ -36,5 +37,10 @@ api_router.include_router(api_math.router, tags=["math"])
 api_router.include_router(api_misc.router, tags=["misc"])
 api_router.include_router(api_programming.router, tags=["programming"])
 api_router.include_router(api_random.router, tags=["random"])
+api_router.include_router(api_system.router, tags=["sys"])
+
 
 monke_api.include_router(api_router)
+
+# initialize analytics singleton to start keeping time 🐐
+analytics = Analytics()
