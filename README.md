@@ -15,5 +15,6 @@ basado on fastapi + uvicorn 🦧🧡
 
 ### best practices
 - commit messages with monke are preferred
-- do not forget to tag and name your endpoints!
+- do not forget to name your endpoints!
 - bigger functions go to `utils.py` to declutter `main.py`
+
