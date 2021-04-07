@@ -1,6 +1,6 @@
 from fastapi import FastAPI, APIRouter
 
-from endpoints import api_random, api_math, api_programming
+from endpoints import api_random, api_math, api_programming, api_misc
 
 tags_metadata = [
     {
@@ -15,6 +15,10 @@ tags_metadata = [
         "name": "programming",
         "description": "outsource your code to the monkeland 🏞️",
     },
+    {
+        "name": "misc",
+        "description": "in-dev or not assigned to a category yet ⚠️😳",
+    },
 ]
 
 monke_api = FastAPI(
@@ -25,8 +29,12 @@ monke_api = FastAPI(
 )
 
 api_router = APIRouter()
-api_router.include_router(api_random.router, tags=["random"])
+
+# please keep the order as in endpoints/ for consistence 🍌
+# do not forget to add a new tag!
 api_router.include_router(api_math.router, tags=["math"])
+api_router.include_router(api_misc.router, tags=["misc"])
 api_router.include_router(api_programming.router, tags=["programming"])
+api_router.include_router(api_random.router, tags=["random"])
 
 monke_api.include_router(api_router)
