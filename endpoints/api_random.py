@@ -38,24 +38,30 @@ def get_8ball(json: bool = False):
     ])
     return magic(response_value=answer, json=json)
 
-@router.get("/password_gen/lenght={lenght}/sym={include_sym}", tags=["random"], name="monke wants security")
-def password_gen(lenght : int, include_sym : bool, json: bool = False):
+
+@router.get("/random-password/", name="monke wants security")
+def password_gen(length : int, include_sym : bool, json: bool = False):
     gen_password = ''
     similar_letters_list = ['i', 'I', 'L', 'l', 'O', 'o']
-    for i in range(0, lenght):
+
+    for i in range(0, length):
         gen_password += random.choice(string.ascii_letters)
+
         while True:
-            if  gen_password[i] in similar_letters_list:
+            if gen_password[i] in similar_letters_list:
                 gen_password = gen_password[:-1]
                 gen_password += random.choice(string.ascii_letters)
             else:
                 break
+
         if random.randint(0,100) > 70:
             gen_pass_list= list(gen_password)
             gen_pass_list[i] = str(random.choice(string.digits))
             gen_password = "".join(gen_pass_list)
-        if random.randint(0,100) > 80 and ['include_sym'] == True:
+
+        if random.randint(0,100) > 80 and include_sym == True:
             gen_pass_list= list(gen_password)
             gen_pass_list[i] = str(random.choice(string.punctuation))
             gen_password = "".join(gen_pass_list)   
+
     return magic(response_value=gen_password, json=json)
