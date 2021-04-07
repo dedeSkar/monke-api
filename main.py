@@ -26,7 +26,8 @@ monke_api = FastAPI(
     title="monke-api",
     description="🐵🍌 various endpoints to build your application on 🍌🦍",
     version="0.0.1",
-    openapi_tags=tags_metadata
+    openapi_tags=tags_metadata,
+    docs_url="/"
 )
 
 api_router = APIRouter()
