@@ -24,7 +24,7 @@ def get_lorem_ipsum(length: int, json: bool = False):
     text = """Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce risus mi, blandit a purus a, vulputate 
     dignissim orci. Fusce ut tortor mi. Duis finibus tristique libero, sit amet vestibulum est ornare vitae. Quisque 
     in tellus id velit vehicula varius. Quisque non maximus nibh, a auctor turpis. Etiam mattis lacinia nulla, 
-    porta pulvinar sapien varius vitae. Pellentesque sit amet volutpat ligula, id commodo ante. """
+    porta pulvinar sapien varius vitae. Pellentesque sit amet volutpat ligula, id commodo ante."""
     text = text.split(' ')[:length]
     separator = " "
     last = _split_custom(text[len(text)-1])

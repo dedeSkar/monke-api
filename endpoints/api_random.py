@@ -40,7 +40,7 @@ def get_8ball(json: bool = False):
 
 
 @router.get("/random-password/", name="monke wants security")
-def password_gen(length : int, include_sym : bool, json: bool = False):
+def password_gen(length : int, include_sym : bool = True, json: bool = False):
     gen_password = ''
     similar_letters_list = ['i', 'I', 'L', 'l', 'O', 'o']
 
